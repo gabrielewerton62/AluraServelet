@@ -22,7 +22,14 @@ public class NovaEmpresaServlet extends HttpServlet {
 		System.out.println("Cadastro");
 		
 		PrintWriter out = response.getWriter();
+		
 		String nomeEmpresa = request.getParameter("nome");
+		
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+		
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
 		
 		out.println("<html><body>Cadastro effetivado: " + nomeEmpresa + "</body></html>");
 	
